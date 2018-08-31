@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.min';
+import 'jquery-mask-plugin/dist/jquery.mask';
 import 'popper.js/dist/popper';
 import 'bootstrap/dist/js/bootstrap.min';
 

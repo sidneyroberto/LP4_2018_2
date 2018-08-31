@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import $ from 'jquery';
 
 class CadastroContato extends Component {
 
@@ -15,6 +16,12 @@ class CadastroContato extends Component {
         this.enderecoServidor = 'http://localhost:3000/contatos';
         this.aoAlterarValorDoCampo = this.aoAlterarValorDoCampo.bind(this);
         this.salvar = this.salvar.bind(this);
+    }
+
+    componentDidMount() {
+        $('#telefone').mask('(00) 00000-0000', {
+            placeholder: '(__) _____-____'
+        });
     }
 
     aoAlterarValorDoCampo(evento) {
@@ -85,6 +92,7 @@ class CadastroContato extends Component {
                             <div className="form-group">
                                 <label>Telefone</label>
                                 <input
+                                    id="telefone"
                                     type="text"
                                     className="form-control"
                                     value={this.state.telefone}
