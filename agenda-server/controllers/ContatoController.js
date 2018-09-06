@@ -2,9 +2,16 @@ import Contato from '../models/contato';
 
 class ContatoController {
 
-    recuperarTodos(req, res) {
+    recuperarPorFiltro(req, res) {
+        let filtro = req.params.filtro;
+
         Contato
-            .find()
+            .find({
+                $or: [
+                    { nome: { '$regex': filtro, '$options': 'i' } },
+                    { telefone: { '$regex': filtro, '$options': 'i' } }
+                ]
+            })
             .exec()
             .then(
                 // Função de sucesso

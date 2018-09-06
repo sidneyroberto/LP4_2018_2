@@ -8,7 +8,8 @@ class Consulta extends Component {
 
         this.state = {
             contatos: [],
-            erro: false
+            erro: false,
+            filtro: ''
         };
 
         this.enderecoServidor = 'http://localhost:3000/contatos/';
@@ -16,9 +17,10 @@ class Consulta extends Component {
     }
 
     consultar(evento) {
-        let filtro = evento.target.value;
+        let valor = evento.target.value;
+        this.setState({ filtro: valor });
         axios
-            .get(`${this.enderecoServidor}${filtro}`)
+            .get(`${this.enderecoServidor}${valor}`)
             .then(
                 (resposta) => this.setState({ contatos: resposta.data }),
                 (erro) => this.setState({ erro: true })
@@ -56,7 +58,9 @@ class Consulta extends Component {
                             type="text"
                             placeholder="Digite o nome do contato"
                             onChange={this.consultar}
-                            className="form-control">
+                            className="form-control"
+                            name="filtro"
+                            value={this.state.filtro}>
                         </input>
                     </div>
                     <div className="col-md-3"></div>
@@ -64,23 +68,27 @@ class Consulta extends Component {
 
                 <br />
 
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                        <table className="table table-hover table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Telefone</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {listaContatos}
-                            </tbody>
-                        </table>
+                {
+                    listaContatos.length > 0 && this.state.filtro &&
+
+                    <div className="row">
+                        <div className="col-md-3"></div>
+                        <div className="col-md-6">
+                            <table className="table table-hover table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Telefone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {listaContatos}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="col-md-3"></div>
                     </div>
-                    <div className="col-md-3"></div>
-                </div>
+                }
             </div>
         );
     }

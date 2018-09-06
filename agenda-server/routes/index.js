@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
   res.json('Olá!');
 });
 
-// Serviço para recuperar todos os contatos
-router.get('/contatos', contatroCtrl.recuperarTodos);
+// Serviço para recuperar contatos por filtro
+router.get('/contatos/:filtro', contatroCtrl.recuperarPorFiltro);
 
 // Serviço para salvar um novo contato
 router.post('/contatos', contatroCtrl.salvar);
