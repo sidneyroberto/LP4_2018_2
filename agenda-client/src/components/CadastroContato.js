@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import $ from 'jquery';
 
 class CadastroContato extends Component {
@@ -13,7 +12,6 @@ class CadastroContato extends Component {
             sucesso: false
         };
 
-        this.enderecoServidor = 'http://localhost:3000/contatos';
         this.aoAlterarValorDoCampo = this.aoAlterarValorDoCampo.bind(this);
         this.salvar = this.salvar.bind(this);
     }
@@ -32,26 +30,9 @@ class CadastroContato extends Component {
 
     salvar(evento) {
         evento.preventDefault();
-        let contato = {
-            nome: this.state.nome,
-            telefone: this.state.telefone
-        };
-
-        this.setState({ sucesso: false, erro: false });
-
-        axios
-            .post(this.enderecoServidor, contato)
-            .then(
-                (resposta) => this.setState({ sucesso: true, nome: '', telefone: '' }),
-                (erro) => {
-                    console.log(erro);
-                    this.setState({ erro: true });
-                }
-            )
-            .catch((erro) => {
-                console.log(erro);
-                this.setState({ erro: true });
-            });
+        /**
+         * Agora deve consumir o serviço do Firebase!
+         */
     }
 
     render() {

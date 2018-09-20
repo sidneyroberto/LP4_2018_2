@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class Consulta extends Component {
 
@@ -12,20 +11,15 @@ class Consulta extends Component {
             filtro: ''
         };
 
-        this.enderecoServidor = 'http://localhost:3000/contatos/';
         this.consultar = this.consultar.bind(this);
     }
 
     consultar(evento) {
         let valor = evento.target.value;
-        this.setState({ filtro: valor });
-        axios
-            .get(`${this.enderecoServidor}${valor}`)
-            .then(
-                (resposta) => this.setState({ contatos: resposta.data }),
-                (erro) => this.setState({ erro: true })
-            )
-            .catch((erro) => this.setState({ erro: true }));
+        /**
+         * Agora iremos consultar o nosso serviço
+         * no Firebase!
+         */
     }
 
     render() {
