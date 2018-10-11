@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Charmonman|Poppins');
+#banner {
+  font-family: 'Charmonman', cursive;
+  background-color: #22a7f0;
+  color: white;
+  padding: 2px 20px 2px 20px;
+  font-size: 120%;
+  margin-bottom: 10px;
+}
+
+#conteudo {
+  font-family: 'Poppins', sans-serif;
+  padding: 0px 10px 0px 10px;
+}
+
+#rodape {
+  font-family: 'Charmonman', cursive;
+  padding: 20px 20px 10px 20px;
+  font-weight: bold;
+  background-color: #22a7f0;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.p-datatable-header {
+  background-color: #22a7f0;
+  font-size: 150%;
+}

@@ -2,12 +2,12 @@ import firebase from '../utils/firebaseUtils';
 
 class TarefaService {
 
-    salvar(tarefa) {
+    salvar(tarefa, funcaoSucesso, funcaoErro) {
         firebase
             .ref('tarefas')
             .push(tarefa)
-            .then((tarefa) => console.log(tarefa))
-            .catch((erro) => console.log(erro));
+            .then((resposta) => funcaoSucesso(resposta))
+            .catch((erro) => funcaoErro(erro));
     }
 
     recuperarTodos(callback) {

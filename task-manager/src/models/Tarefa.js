@@ -3,7 +3,7 @@ class Tarefa {
     constructor() {
         this.descricao = '';
         this.severidade = '';
-        this.prazo = 0;
+        this.prazo = new Date();
     }
 }
 
