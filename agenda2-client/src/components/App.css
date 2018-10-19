@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Charmonman|Poppins');
+:root {
+  --cor-principal: #1781ba;
+}
+
 #banner {
   font-family: 'Charmonman', cursive;
-  background-color: #22a7f0;
+  background-color: var(--cor-principal);
   color: white;
   padding: 2px 20px 2px 20px;
   font-size: 120%;
@@ -17,14 +21,22 @@
   font-family: 'Charmonman', cursive;
   padding: 20px 20px 10px 20px;
   font-weight: bold;
-  background-color: #22a7f0;
+  background-color: var(--cor-principal);
   color: white;
   position: fixed;
   bottom: 0;
   width: 100%;
 }
 
-.p-datatable-header {
-  background-color: #22a7f0;
+thead {
+  background-color: var(--cor-principal);
   font-size: 150%;
+}
+
+.botaoSubmit {
+  background-color: var(--cor-principal);
+  color: white;
+  font-size: 120%;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
 }
